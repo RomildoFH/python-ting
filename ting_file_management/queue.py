@@ -3,25 +3,43 @@ from ting_file_management.abstract_queue import AbstractQueue
 
 class Queue(AbstractQueue):
     def __init__(self):
-        self.items = []
+        self._data = []
+    
+    def __str__(self):
+        str_queue = ""
+        for index in range(0, len(self._data)):
+            value = self._data[index]
+            str_queue += str(value)
+            if index + 1 < len(self._data):
+                str_queue += " <- "
+
+        return "FILA: |" + str_queue + "|"
 
     def __len__(self):
-        return len(self.items)
+        return len(self._data)
 
     def enqueue(self, value):
-        self.items.append(value)
+        self._data.append(value)
 
     def dequeue(self):
         if not self.is_empty():
-            return self.items.pop(0)
+            return self._data.pop(0)
         else:
             raise IndexError("Não é possível fazer dequeue de lista vazia!")
 
     def search(self, index):
-        if 0 <= index < len(self.items):
-            return self.items[index]
+        if 0 <= index < len(self._data):
+            return self._data[index]
         else:
             raise IndexError("Índice Inválido ou Inexistente")
 
     def is_empty(self):
-        return len(self.items) == 0
+        return len(self._data) == 0
+
+    def item_exists(self, file_name):
+        for item in self._data:
+            print(f"esté é o item: {item}")
+            # print(f"esté é nome do item: {item.nome_do_arquivo}")
+            if item.get("nome_do_arquivo") == file_name:
+                return True
+        return False
