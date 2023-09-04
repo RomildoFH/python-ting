@@ -18,10 +18,17 @@ class Queue(AbstractQueue):
             raise IndexError("Não é possível fazer dequeue de lista vazia!")
 
     def search(self, index):
-        if 0 <= index <= len(self.items):
+        if 0 <= index < len(self.items):
             return self.items[index]
         else:
             raise IndexError("Índice Inválido ou Inexistente")
 
     def is_empty(self):
         return len(self.items) == 0
+
+# myqueue = Queue()
+# myqueue.enqueue(1)
+# myqueue.enqueue(2)
+# myqueue.enqueue(3)
+
+# print(myqueue[0])
