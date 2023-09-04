@@ -22,10 +22,7 @@ class Queue(AbstractQueue):
         self._data.append(value)
 
     def dequeue(self):
-        if not self.is_empty():
-            return self._data.pop(0)
-        else:
-            raise IndexError("Não é possível fazer dequeue de lista vazia!")
+        self._data.pop(0)
 
     def search(self, index):
         if 0 <= index < len(self._data):
@@ -38,8 +35,6 @@ class Queue(AbstractQueue):
 
     def item_exists(self, file_name):
         for item in self._data:
-            print(f"esté é o item: {item}")
-            # print(f"esté é nome do item: {item.nome_do_arquivo}")
             if item.get("nome_do_arquivo") == file_name:
                 return True
         return False

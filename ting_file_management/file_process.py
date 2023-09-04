@@ -1,10 +1,12 @@
 # import sys
+from ting_file_management.queue import Queue
 from ting_file_management.file_management import txt_importer
 
 
 def process(path_file, instance):
     # print(instance)
     if instance.item_exists(path_file):
+        print("arquivo já existente")
         return None
     lines = txt_importer(path_file)
     file_name = path_file
@@ -18,7 +20,13 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    if not instance.is_empty():
+        item = instance.search(0)
+        instance.dequeue()
+        path_file = item.get("nome_do_arquivo")
+        print(f"Arquivo {path_file} removido com sucesso")
+    else:
+        print("Não há elementos")
 
 
 def file_metadata(instance, position):
@@ -31,6 +39,16 @@ def file_metadata(instance, position):
 #         "qtd_linhas": 2,
 #         "linhas_do_arquivo": ["linha 1", "linha 2"]
 #         })
-# print(myQueue)
-# print(process("statics/arquivo_teste.txt", myQueue))
-# print(process("statics/arquivo_teste.txt", myQueue))
+# print(f"imprimindo fila: {myQueue}")
+# process("statics/arquivo_teste.txt", myQueue)
+# process("statics/arquivo_teste.txt", myQueue)
+# myQueue.enqueue({
+#         "nome_do_arquivo": "test_name_2",
+#         "qtd_linhas": 3,
+#         "linhas_do_arquivo": ["linha 1", "linha 2", "linha 3"]
+#         })
+# print(f"imprimindo fila: {myQueue}")
+# remove(myQueue)
+# remove(myQueue)
+# remove(myQueue)
+# remove(myQueue)
