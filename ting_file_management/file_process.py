@@ -1,5 +1,9 @@
+import sys
+from ting_file_management.file_management import txt_importer
+
 def process(path_file, instance):
-    """Aqui irá sua implementação"""
+    lines = txt_importer(path_file)
+    return lines
 
 
 def remove(instance):
@@ -8,3 +12,6 @@ def remove(instance):
 
 def file_metadata(instance, position):
     """Aqui irá sua implementação"""
+
+
+print(process("statics/arquivo_teste.txt", 'xablau'))
