@@ -12,11 +12,12 @@ def exists_word(word, instance):
                     "linha": number
                 }
                 ocorrencias.append(current)
-        new_list.append({
-            "palavra": word,
-            "arquivo": path_name,
-            "ocorrencias": ocorrencias
-        })
+        if len(ocorrencias) > 0:
+            new_list.append({
+                "palavra": word,
+                "arquivo": path_name,
+                "ocorrencias": ocorrencias
+            })
     return (new_list)
 
 
