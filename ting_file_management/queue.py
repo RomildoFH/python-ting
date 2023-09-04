@@ -39,3 +39,6 @@ class Queue(AbstractQueue):
             if item.get("nome_do_arquivo") == file_name:
                 return True
         return False
+
+    def get_data(self):
+        return self._data
