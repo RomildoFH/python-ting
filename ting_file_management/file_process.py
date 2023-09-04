@@ -1,5 +1,5 @@
-# import sys
-# from ting_file_management.queue import Queue
+import sys
+from ting_file_management.queue import Queue
 from ting_file_management.file_management import txt_importer
 
 
@@ -30,8 +30,12 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    item = instance.search(position)
-    print(item)
+    try:
+        item = instance.search(position)
+        print(item)
+    except IndexError:
+        error_message = "Posição inválida"
+        print(error_message, file=sys.stderr)
 
 
 # myQueue = Queue()
