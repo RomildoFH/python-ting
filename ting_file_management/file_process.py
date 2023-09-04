@@ -1,4 +1,5 @@
 # import sys
+# from ting_file_management.queue import Queue
 from ting_file_management.file_management import txt_importer
 
 
@@ -29,7 +30,8 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    item = instance.search(position)
+    print(item)
 
 
 # myQueue = Queue()
@@ -38,7 +40,6 @@ def file_metadata(instance, position):
 #         "qtd_linhas": 2,
 #         "linhas_do_arquivo": ["linha 1", "linha 2"]
 #         })
-# print(f"imprimindo fila: {myQueue}")
 # process("statics/arquivo_teste.txt", myQueue)
 # process("statics/arquivo_teste.txt", myQueue)
 # myQueue.enqueue({
@@ -51,3 +52,5 @@ def file_metadata(instance, position):
 # remove(myQueue)
 # remove(myQueue)
 # remove(myQueue)
+# file_metadata(myQueue, 2)
+
