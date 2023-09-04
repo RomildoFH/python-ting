@@ -25,10 +25,3 @@ class Queue(AbstractQueue):
 
     def is_empty(self):
         return len(self.items) == 0
-
-# myqueue = Queue()
-# myqueue.enqueue(1)
-# myqueue.enqueue(2)
-# myqueue.enqueue(3)
-
-# print(myqueue[0])
