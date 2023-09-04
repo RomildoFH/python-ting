@@ -1,5 +1,5 @@
 import sys
-from ting_file_management.queue import Queue
+# from ting_file_management.queue import Queue
 from ting_file_management.file_management import txt_importer
 
 
@@ -57,4 +57,3 @@ def file_metadata(instance, position):
 # remove(myQueue)
 # remove(myQueue)
 # file_metadata(myQueue, 2)
-
