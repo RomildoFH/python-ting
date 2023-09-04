@@ -7,7 +7,10 @@ def txt_importer(path_file):
             raise ValueError("Formato inválido")
 
         with open(path_file, "r") as file:
-            return file.read().split("\n")
+            lines = file.read().split("\n")
+            # if lines == ['']: # comentado devido complexidade
+            #     raise ValueError("Arquivo vazio!")
+            return lines
 
     except FileNotFoundError:
         error_message = f"Arquivo {path_file} não encontrado"
