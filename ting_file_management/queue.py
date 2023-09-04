@@ -4,7 +4,7 @@ from ting_file_management.abstract_queue import AbstractQueue
 class Queue(AbstractQueue):
     def __init__(self):
         self._data = []
-    
+
     def __str__(self):
         str_queue = ""
         for index in range(0, len(self._data)):
